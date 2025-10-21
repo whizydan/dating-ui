@@ -487,11 +487,11 @@ export default function MatchesPage() {
                     <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
                       <div>
                         <strong className="text-purple-600">Ask about quirks:</strong>
-                        <p>"I noticed you're into {matches[0]?.matched_user.quirks?.[0] || 'adventure'}! Tell me more about that?"</p>
+                        <p>&ldquo;I noticed you&apos;re into {matches[0]?.matched_user.quirks?.[0] || 'adventure'}! Tell me more about that?&ldquo;</p>
                       </div>
                       <div>
                         <strong className="text-purple-600">Be genuine:</strong>
-                        <p>"Your profile made me smile! What's the best part of your day been?"</p>
+                        <p>&ldquo;Your profile made me smile! What&apos;s the best part of your day been?&ldquo;</p>
                       </div>
                     </div>
                   </div>
