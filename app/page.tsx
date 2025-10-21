@@ -4,20 +4,35 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Heart, MessageCircle, Sparkles, Users, Shield, Zap } from 'lucide-react';
 import Link from 'next/link';
 
 export default function HomePage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [loggedIn,setLoggedIn] = useState(false);
+  const supabase = createClientComponentClient();
 
   useEffect(() => {
     setIsVisible(true);
+    checkUser();
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [supabase]);
+
+  const checkUser = async () => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        setLoggedIn(true);
+      }
+    } catch (error) {
+      setLoggedIn(false);
+    }
+  };
 
   const testimonials = [
     {
@@ -108,16 +123,27 @@ export default function HomePage() {
             animate={{ opacity: 1, x: 0 }}
             className="flex space-x-4"
           >
-            <Link href={'/login'}>
+            {!loggedIn && (
+              <Link href={'/login'}>
               <Button variant="ghost" className="text-gray-600 hover:text-purple-600">
                 Login
               </Button>
             </Link>
-            <Link href={'/register'}>
+            )}
+            {!loggedIn && (
+              <Link href={'/register'}>
               <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
                 Sign Up Free
               </Button>
             </Link>
+            )}
+            {loggedIn && (
+              <Link href={'/discover'}>
+              <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+                My Dashboard
+              </Button>
+            </Link>
+            )}
           </motion.div>
         </div>
       </nav>
