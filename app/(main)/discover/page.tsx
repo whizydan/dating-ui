@@ -37,16 +37,8 @@ export default function DiscoverPage() {
   });
 
   useEffect(() => {
-    checkAuth();
     loadProfiles();
   }, []);
-
-  const checkAuth = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      router.push('/login');
-    }
-  };
 
   const loadProfiles = async () => {
     try {

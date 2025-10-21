@@ -25,7 +25,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
     
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_OUT') {
-        router.push('/');
+        supabase.auth.onAuthStateChange((_event, session) => {
+          if (session) router.push('/discover');
+        });
       } else if (session) {
         setUser(session.user);
       }
@@ -39,8 +41,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
         setUser(session.user);
-      } else {
-        router.push('/login');
       }
     } catch (error) {
       console.error('Error checking user:', error);
@@ -76,7 +76,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
     },
     {
       name: 'Profile',
-      href: '/profile/edit',
+      href: '/profile/',
       icon: User,
       description: 'Edit your profile'
     },
