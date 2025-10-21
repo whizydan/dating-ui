@@ -31,6 +31,7 @@ export default function LoginPage() {
       });
 
       if (error) throw error;
+      await supabase.auth.setSession(data.session);
       if (data?.user) router.push('/discover');
     } catch (error: any) {
       setError(error.message);

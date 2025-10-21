@@ -1,38 +1,36 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Heart, MessageCircle, Sparkles, Users, Shield, Zap } from 'lucide-react';
 import Link from 'next/link';
+import { supabase } from '@/lib/supabaseClient';
 
 export default function HomePage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [loggedIn,setLoggedIn] = useState(false);
-  const supabase = createClientComponentClient();
-
-  useEffect(() => {
-    setIsVisible(true);
-    checkUser();
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [supabase]);
 
   const checkUser = async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
-      if (session) {
-        setLoggedIn(true);
-      }
+      if (session) setLoggedIn(true);
     } catch (error) {
-      setLoggedIn(false);
+      console.error('Error checking user:', error);
     }
   };
+
+  useEffect(() => {
+    setIsVisible(true);
+    checkUser()
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
 
   const testimonials = [
     {
