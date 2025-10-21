@@ -155,7 +155,7 @@ export default function DiscoverPage() {
             </div>
             <h3 className="text-2xl font-bold text-gray-800 mb-2">No More Profiles</h3>
             <p className="text-gray-600 mb-6">
-              You've seen all the quirky people in your area. Check back later for new matches!
+              You&apos;ve seen all the quirky people in your area. Check back later for new matches!
             </p>
             <Button
               onClick={loadProfiles}
@@ -335,9 +335,9 @@ export default function DiscoverPage() {
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full flex items-center justify-center">
                 <Star className="w-8 h-8 text-purple-500" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">That's all for now!</h3>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">That&apos;s all for now!</h3>
               <p className="text-gray-600 mb-4">
-                You've seen everyone in your area. Check back later for new quirky matches.
+                You&apos;ve seen everyone in your area. Check back later for new quirky matches.
               </p>
               <Button
                 onClick={loadProfiles}
