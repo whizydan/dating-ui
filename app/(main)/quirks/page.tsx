@@ -25,8 +25,8 @@ import {
   Music,
   Utensils,
   Gamepad,
-  Hiking,
-  Camera
+  Camera,
+  LucideLeafyGreen
 } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 import { useRouter } from 'next/navigation';
@@ -90,7 +90,7 @@ export default function QuirksPage() {
     {
       id: 'adventure',
       name: 'Adventure',
-      icon: <Hiking className="w-5 h-5" />,
+      icon: <LucideLeafyGreen className="w-5 h-5" />,
       description: 'Outdoor and exploration activities',
       color: 'from-green-500 to-emerald-500',
       quirks: ['Adventure Seeker', 'Hiking Enthusiast', 'Traveler', 'Nature Lover', 'Explorer']
@@ -184,7 +184,7 @@ export default function QuirksPage() {
       'Art Lover': <Palette className="w-4 h-4" />,
       'Foodie Explorer': <Utensils className="w-4 h-4" />,
       'Gamer': <Gamepad className="w-4 h-4" />,
-      'Adventure Seeker': <Hiking className="w-4 h-4" />,
+      'Adventure Seeker': <LucideLeafyGreen className="w-4 h-4" />,
       'Photography Lover': <Camera className="w-4 h-4" />,
     };
     return icons[quirk] || <Sparkles className="w-4 h-4" />;
