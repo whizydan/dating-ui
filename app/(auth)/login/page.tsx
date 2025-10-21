@@ -31,7 +31,7 @@ export default function LoginPage() {
       });
 
       if (error) throw error;
-      if (data?.user) router.push('/disover');
+      if (data?.user) router.push('/discover');
     } catch (error: any) {
       setError(error.message);
     } finally {
