@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description: "Connect authentically through your quirks. No in-app chats - just real conversations on WhatsApp.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/api/og",
         width: 1200,
         height: 630,
         alt: "Quirk Dating - Find Your Unique Match",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Quirk Dating - Embrace Your Uniqueness",
     description: "Connect authentically through your quirks. No in-app chats - just real conversations on WhatsApp.",
-    images: ["/og-image.png"],
+    images: ["/api/og"],
     creator: "@quirksdating",
   },
   
