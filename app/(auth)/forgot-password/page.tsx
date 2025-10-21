@@ -147,7 +147,7 @@ export default function ForgotPasswordPage() {
                     Check Your Email
                   </h3>
                   <p className="text-gray-600">
-                    We've sent a password reset link to:
+                    We&apos;ve sent a password reset link to:
                   </p>
                   <p className="font-medium text-purple-600">{email}</p>
                 </div>
@@ -156,7 +156,7 @@ export default function ForgotPasswordPage() {
                   <div className="flex items-start space-x-3">
                     <Shield className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
                     <div className="space-y-2">
-                      <h4 className="font-medium text-blue-900">What's Next?</h4>
+                      <h4 className="font-medium text-blue-900">What&apos;s Next?</h4>
                       <ul className="text-sm text-blue-700 space-y-1">
                         <li>• Check your inbox for an email from Quirk Dating</li>
                         <li>• Click the reset link in the email</li>
@@ -208,7 +208,7 @@ export default function ForgotPasswordPage() {
                     <h4 className="text-sm font-medium text-purple-900">Security Notice</h4>
                     <p className="text-xs text-purple-700 mt-1">
                       The reset link will expire in 24 hours for your security. 
-                      If you don't see the email, check your spam folder.
+                      If you don&apos;t see the email, check your spam folder.
                     </p>
                   </div>
                 </div>
