@@ -215,7 +215,7 @@ export default function ProfileEditPage() {
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">Profile Not Found</h3>
             <p className="text-gray-600 mb-4">
-              We couldn't load your profile. Please try refreshing the page.
+              We couldn&apos;t load your profile. Please try refreshing the page.
             </p>
             <Button onClick={loadProfile} className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
               Try Again
