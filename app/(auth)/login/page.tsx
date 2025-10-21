@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Eye, EyeOff, Mail, Lock, Heart, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabaseClient';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -16,6 +17,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +31,7 @@ export default function LoginPage() {
       });
 
       if (error) throw error;
-      // Redirect will happen automatically due to auth state change
+      if (data?.user) router.push('/disover');
     } catch (error: any) {
       setError(error.message);
     } finally {

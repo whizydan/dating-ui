@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, MessageCircle, Sparkles, Users, Shield, Zap } from 'lucide-react';
+import Link from 'next/link';
 
 export default function HomePage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -107,12 +108,16 @@ export default function HomePage() {
             animate={{ opacity: 1, x: 0 }}
             className="flex space-x-4"
           >
-            <Button variant="ghost" className="text-gray-600 hover:text-purple-600">
-              Login
-            </Button>
-            <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-              Sign Up Free
-            </Button>
+            <Link href={'/login'}>
+              <Button variant="ghost" className="text-gray-600 hover:text-purple-600">
+                Login
+              </Button>
+            </Link>
+            <Link href={'/register'}>
+              <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+                Sign Up Free
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </nav>
